@@ -8,45 +8,48 @@ encode: The parameters are the string you want to use, and then true or false ba
 decode: Input the encoded cloud and it will decode it, no extra parameters needed.
 */
 
-const scratch = require("node-scratch-client");
-const fs = require('fs');
+import { Client as _Client } from "node-scratch-client";
+import { readFileSync, writeFileSync } from "fs";
+import { encode, decode } from "./encode-decode.js";
 
-const encodeDecode = require("./encode-decode.js");
-
-console.log(decode(encode("hi",true)));
+console.log(decode(encode("hi", true)));
 
 const PROJECT_ID = 459440895;
-const CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_ .,:;'\"\\?!/()[]{}+-=*@#&";
+const CHARS =
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_ .,:;'\"\\?!/()[]{}+-=*@#&";
 const CHAR_BITS = CHARS.length.toString(2).length;
 
-let files = JSON.parse(fs.readFileSync('files.json'));
+let files = JSON.parse(readFileSync("files.json"));
 
-const Client = new scratch.Client({
+const Client = new _Client({
   username: "VioletOS-VI",
-  password: process.env.PASSWORD
+  password: process.env.PASSWORD,
 });
 
-let saveFile = value => {
+let saveFile = (value) => {
   let save = JSON.parse(decode(value));
   let userFolders = files[save.u].folders;
   for (const [id, folder] of Object.entries(save.fo)) {
-    let newFolder = JSON.stringify(userFolders[id-1]);
+    let newFolder = JSON.stringify(userFolders[id - 1]);
     console.log(newFolder);
-    folder.forEach(change => {
-      newFolder = newFolder.slice(0, change.s+2) + change.t + newFolder.slice(change.e+2);
+    folder.forEach((change) => {
+      newFolder =
+        newFolder.slice(0, change.s + 2) +
+        change.t +
+        newFolder.slice(change.e + 2);
       console.log(newFolder);
     });
     userFolders[id] = JSON.parse(newFolder);
   }
   files[save.u].folders = userFolders;
-  fs.writeFileSync('files.json', JSON.stringify(files));
-}
+  writeFileSync("files.json", JSON.stringify(files));
+};
 
 Client.login().then(() => {
   let cloud = Client.session.createCloudSession(PROJECT_ID);
 
   cloud.connect().then(() => {
-    cloud.on("set", variable => {
+    cloud.on("set", (variable) => {
       console.log("Variable changed to " + variable.value);
     });
   });
