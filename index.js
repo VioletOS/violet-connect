@@ -12,42 +12,39 @@ import { Client as _Client } from "node-scratch-client";
 import { readFileSync, writeFileSync } from "fs";
 import { encode, decode } from "./encode-decode.js";
 
-console.log(decode(encode("Hello!", false)));
-
 const PROJECT_ID = 459440895;
 
 let files = JSON.parse(readFileSync("files.json"));
 
 const Client = new _Client({
-  username: "VioletOS-VI",
+  username: "qucchia",
   password: process.env.PASSWORD,
 });
 
-let saveFile = (value) => {
-  let save = JSON.parse(decode(value));
-  let userFolders = files[save.u].folders;
-  for (const [id, folder] of Object.entries(save.fo)) {
-    let newFolder = JSON.stringify(userFolders[id - 1]);
-    console.log(newFolder);
-    folder.forEach((change) => {
-      newFolder =
-        newFolder.slice(0, change.s + 2) +
-        change.t +
-        newFolder.slice(change.e + 2);
-      console.log(newFolder);
-    });
-    userFolders[id] = JSON.parse(newFolder);
-  }
-  files[save.u].folders = userFolders;
+let saveFile = (value, user) => {
+  let request = JSON.parse(decode(value));
+  let userFiles = JSON.stringify(files[user]);
+  request.forEach((change) => {
+    userFiles =
+      userFiles.slice(0, change[0]) + change[2] + userFiles.slice(change[1]);
+  });
+  files[request.user] = JSON.parse(userFiles);
   writeFileSync("files.json", JSON.stringify(files));
 };
+
+saveFile(
+  encode('[[19,32,"stuff.json"],[39,43,"1KB"],[80,81,"2"]]', false),
+  "qucchia"
+);
 
 Client.login().then(() => {
   let cloud = Client.session.createCloudSession(PROJECT_ID);
 
   cloud.connect().then(() => {
+    console.log("Ready!");
     cloud.on("set", (variable) => {
-      console.log("Variable changed to " + variable.value);
+      let user = variable._client.session.username;
+      console.log(user, variable.name, variable.value);
     });
   });
 });
