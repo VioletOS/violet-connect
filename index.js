@@ -12,12 +12,9 @@ import { Client as _Client } from "node-scratch-client";
 import { readFileSync, writeFileSync } from "fs";
 import { encode, decode } from "./encode-decode.js";
 
-console.log(decode(encode("hi", true)));
+console.log(decode(encode("Hello!", false)));
 
 const PROJECT_ID = 459440895;
-const CHARS =
-  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_ .,:;'\"\\?!/()[]{}+-=*@#&";
-const CHAR_BITS = CHARS.length.toString(2).length;
 
 let files = JSON.parse(readFileSync("files.json"));
 

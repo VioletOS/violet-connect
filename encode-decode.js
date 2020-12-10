@@ -1,3 +1,7 @@
+const CHARS =
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_ .,:;'\"\\?!/()[]{}+-=*@#&";
+const CHAR_BITS = CHARS.length.toString(2).length;
+
 let encode = (string, huffman) => {
   let text = "";
   let length = 0;
@@ -70,7 +74,7 @@ let decodeHuffman = (binary) => {
   let chars = [];
   let char_encodings = [];
   let encoding_value = 0;
-  for (i = 0; i < bit_amounts.length; i++) {
+  for (let i = 0; i < bit_amounts.length; i++) {
     for (let k = 0; k < bit_amounts[i]; k++, j += CHAR_BITS) {
       chars.push(CHARS[parseInt(binary.substr(j, CHAR_BITS), 2)]);
       let encoding = encoding_value.toString(2);
@@ -133,7 +137,7 @@ let encodeHuffman = (string) => {
       sort_gap = 1;
       sorted = true;
     }
-    for (i = 0; i + sort_gap < amounts.length; i++) {
+    for (let i = 0; i + sort_gap < amounts.length; i++) {
       if (amounts[i] > amounts[i + sort_gap]) {
         [
           amounts[i],
@@ -157,7 +161,7 @@ let encodeHuffman = (string) => {
     encoded[0] = dictionary[0];
   } else {
     while (dictionary.length > 1) {
-      for (i = 0; i < dictionary[0].length; i++) {
+      for (let i = 0; i < dictionary[0].length; i++) {
         if (encoded.includes(dictionary[0][i]))
           encodings[encoded.indexOf(dictionary[0][i])] =
             "0" + encodings[encoded.indexOf(dictionary[0][i])];
@@ -166,7 +170,7 @@ let encodeHuffman = (string) => {
           encoded.push(dictionary[0][i]);
         }
       }
-      for (i = 0; i < dictionary[1].length; i++) {
+      for (let i = 0; i < dictionary[1].length; i++) {
         if (encoded.includes(dictionary[1][i]))
           encodings[encoded.indexOf(dictionary[1][i])] =
             "1" + encodings[encoded.indexOf(dictionary[1][i])];
@@ -175,6 +179,7 @@ let encodeHuffman = (string) => {
           encoded.push(dictionary[1][i]);
         }
       }
+      let i;
       for (
         i = 2;
         i < amounts.length && amounts[i] <= amounts[0] + amounts[1];
@@ -195,7 +200,7 @@ let encodeHuffman = (string) => {
       sort_gap = 1;
       sorted = true;
     }
-    for (i = 0; i + sort_gap < encodings.length; i++) {
+    for (let i = 0; i + sort_gap < encodings.length; i++) {
       if (encodings[i].length > encodings[i + sort_gap].length) {
         [
           encodings[i],
@@ -215,7 +220,7 @@ let encodeHuffman = (string) => {
   let canonical_encoding = [];
   let j = 0;
   let max_bits = 0;
-  for (i = 0; i < encodings.length; i++) {
+  for (let i = 0; i < encodings.length; i++) {
     let encoded_value = j.toString(2);
     while (encoded_value.length < encodings[i].length)
       encoded_value = "0" + encoded_value;
@@ -236,7 +241,7 @@ let encodeHuffman = (string) => {
   let k = 0,
     count = 0,
     old_count = 0;
-  for (i = 0, j = 1; i < canonical_encoding.length; i++) {
+  for (let i = 0, j = 1; i < canonical_encoding.length; i++) {
     if (canonical_encoding[i].length == j) {
       k++;
       count++;
@@ -272,14 +277,14 @@ let encodeHuffman = (string) => {
 
   output += temp_binary;
 
-  for (i = 0; i < encoded.length; i++) {
+  for (let i = 0; i < encoded.length; i++) {
     let temp_binary = CHARS.indexOf(encoded[i]).toString(2);
     while (temp_binary.length < CHAR_BITS) temp_binary = "0" + temp_binary;
 
     output += temp_binary;
   }
 
-  for (i = 0; i < string.length; i++)
+  for (let i = 0; i < string.length; i++)
     output += canonical_encoding[encoded.indexOf(string[i])];
 
   return output;
