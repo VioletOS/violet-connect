@@ -1,1 +1,53 @@
-{"qucchia":{"files":[{"name":"settings.json","size":"238B","modified":7644.4020212963,"folder":3,"contents":["{\"languages\":[\"english\"],\"theme\":\"dark\",\"keyboard\":{\"autorepeat\":{\"enable\":true,\"delayBeforeRepeat\":0.5,\"delayBetweenRepeats\":0.1}},\"dateAndTime\":{\"setTimeAutomatically\":true,\"timeZone\":1,\"24HourClock\":true}}"]},{"name":"wallpaper.img","size":"152B","modified":7644.915155104167,"folder":3,"contents":["{\"width\":480,\"height\":360,\"layers\":[{\"type\":\"costume\",\"name\":\"wallpaper\",\"number\":1,\"size\":100,\"x\":0,\"y\":0,\"direction\":90}]}"]},{"name":"icon.img","size":"288B","modified":7644.920801828704,"folder":3,"contents":["{\"width\":480,\"height\":360,\"layers\":[{\"type\":\"costume\",\"name\":\"wallpaper\",\"number\":1,\"size\":100,\"x\":0,\"y\":0,\"direction\":90},{\"type\":\"costume\",\"name\":\"costume1\",\"number\":5,\"size\":200,\"x\":50,\"y\":30,\"direction\":90,\"effects\":{\"pixelate\":30}}]}"]}],"folders":[{"name":"C:","files":[],"folders":[2,3,11],"folder":"null"},{"name":"Home","files":[],"folders":[4,6,7,8,5,9,10],"folder":1},{"name":"System","files":[1,2,3],"folders":[],"folder":1},{"name":"Downloads","files":[],"folders":[],"folder":2},{"name":"Videos","files":[],"folders":[],"folder":2},{"name":"Pictures","files":[],"folders":[],"folder":2},{"name":"Documents","files":[],"folders":[],"folder":2},{"name":"Music","files":[],"folders":[],"folder":2},{"name":"Templates","files":[],"folders":[],"folder":2},{"name":"Desktop","files":[],"folders":[],"folder":2},{"name":"Local","files":[],"folders":[12,13],"folder":1},{"name":"Temporary","files":[],"folders":[],"folder":11},{"name":"Logs","files":[],"folders":[],"folder":11}]},"undefined":{"files":[{"name":"stuff.json","size":"1KB","modified":7644.4020212963,"folder":2,"contents":["{\"languages\":[\"english\"],\"theme\":\"dark\",\"keyboard\":{\"autorepeat\":{\"enable\":true,\"delayBeforeRepeat\":0.5,\"delayBetweenRepeats\":0.1}},\"dateAndTime\":{\"setTimeAutomatically\":true,\"timeZone\":1,\"24HourClock\":true}}"]},{"name":"wallpaper.img","size":"152B","modified":7644.915155104167,"folder":3,"contents":["{\"width\":480,\"height\":360,\"layers\":[{\"type\":\"costume\",\"name\":\"wallpaper\",\"number\":1,\"size\":100,\"x\":0,\"y\":0,\"direction\":90}]}"]},{"name":"icon.img","size":"288B","modified":7644.920801828704,"folder":3,"contents":["{\"width\":480,\"height\":360,\"layers\":[{\"type\":\"costume\",\"name\":\"wallpaper\",\"number\":1,\"size\":100,\"x\":0,\"y\":0,\"direction\":90},{\"type\":\"costume\",\"name\":\"costume1\",\"number\":5,\"size\":200,\"x\":50,\"y\":30,\"direction\":90,\"effects\":{\"pixelate\":30}}]}"]}],"folders":[{"name":"C:","files":[],"folders":[2,3,11],"folder":"null"},{"name":"Home","files":[],"folders":[4,6,7,8,5,9,10],"folder":1},{"name":"System","files":[1,2,3],"folders":[],"folder":1},{"name":"Downloads","files":[],"folders":[],"folder":2},{"name":"Videos","files":[],"folders":[],"folder":2},{"name":"Pictures","files":[],"folders":[],"folder":2},{"name":"Documents","files":[],"folders":[],"folder":2},{"name":"Music","files":[],"folders":[],"folder":2},{"name":"Templates","files":[],"folders":[],"folder":2},{"name":"Desktop","files":[],"folders":[],"folder":2},{"name":"Local","files":[],"folders":[12,13],"folder":1},{"name":"Temporary","files":[],"folders":[],"folder":11},{"name":"Logs","files":[],"folders":[],"folder":11}]}}
+{
+  "qucchia": {
+    "files": [
+      {
+        "name": "stuff.json",
+        "size": "1KB",
+        "modified": 7644.4020212963,
+        "folder": 2,
+        "contents": [
+          "{\"languages\":[\"english\"],\"theme\":\"dark\",\"keyboard\":{\"autorepeat\":{\"enable\":true,\"delayBeforeRepeat\":0.5,\"delayBetweenRepeats\":0.1}},\"dateAndTime\":{\"setTimeAutomatically\":true,\"timeZone\":1,\"24HourClock\":true}}"
+        ]
+      },
+      {
+        "name": "wallpaper.img",
+        "size": "152B",
+        "modified": 7644.915155104167,
+        "folder": 3,
+        "contents": [
+          "{\"width\":480,\"height\":360,\"layers\":[{\"type\":\"costume\",\"name\":\"wallpaper\",\"number\":1,\"size\":100,\"x\":0,\"y\":0,\"direction\":90}]}"
+        ]
+      },
+      {
+        "name": "icon.img",
+        "size": "288B",
+        "modified": 7644.920801828704,
+        "folder": 3,
+        "contents": [
+          "{\"width\":480,\"height\":360,\"layers\":[{\"type\":\"costume\",\"name\":\"wallpaper\",\"number\":1,\"size\":100,\"x\":0,\"y\":0,\"direction\":90},{\"type\":\"costume\",\"name\":\"costume1\",\"number\":5,\"size\":200,\"x\":50,\"y\":30,\"direction\":90,\"effects\":{\"pixelate\":30}}]}"
+        ]
+      }
+    ],
+    "folders": [
+      { "name": "C:", "files": [], "folders": [2, 3, 11], "folder": "null" },
+      {
+        "name": "Home",
+        "files": [],
+        "folders": [4, 6, 7, 8, 5, 9, 10],
+        "folder": 1
+      },
+      { "name": "System", "files": [1, 2, 3], "folders": [], "folder": 1 },
+      { "name": "Downloads", "files": [], "folders": [], "folder": 2 },
+      { "name": "Videos", "files": [], "folders": [], "folder": 2 },
+      { "name": "Pictures", "files": [], "folders": [], "folder": 2 },
+      { "name": "Documents", "files": [], "folders": [], "folder": 2 },
+      { "name": "Music", "files": [], "folders": [], "folder": 2 },
+      { "name": "Templates", "files": [], "folders": [], "folder": 2 },
+      { "name": "Desktop", "files": [], "folders": [], "folder": 2 },
+      { "name": "Local", "files": [], "folders": [12, 13], "folder": 1 },
+      { "name": "Temporary", "files": [], "folders": [], "folder": 11 },
+      { "name": "Logs", "files": [], "folders": [], "folder": 11 }
+    ]
+  }
+}
